@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM selection examples</title>
+    <style>
+        .highlight {color: red;font-weight: bold}
+    </style>
+</head>
+<body>
+
+    <h1 id="main-title">Hello DOM</h1>
+
+    <p class="info">This is a paragraph</p>
+
+    <p class="info">Another paragraph</p>
+
+    <div class="box">Box1</div>
+
+    <div class="box">Box2</div>
+
+    <script>
+
+     // getElementByID
+
+     let title = document.getElementById("main-title");
+     console.log(title);
+     title.style.color = "blue";
+
+     // querySelector (first match)
+
+     let firstpara = document.querySelector(".info");
+     firstpara.textContent = "changed first paragraph";
+
+     let firstParat = document.querySelector("p");
+     firstParat.style.fontWeight= "bold";
+
+     // querySelectorAll (for all matches)
+
+     let boxes = document.querySelectorAll(".box");
+
+     boxes.forEach((boxes,index)=>{
+
+        boxes.textContent= "box number"+ (index+1);
+        boxes.classList.add("highlight");
+
+     });
+
+     // getElementByClassName
+
+     let paras = document.getElementsByClassName("info");
+     paras[1].style.background = "yellow";
+
+     // getElementByTagName
+
+     let alldivs = document.getElementsByTagName("div");
+     console.log("total divs",alldivs.length)
+    
+
+    </script>
+
+
+
+
+    
+</body>
+</html>

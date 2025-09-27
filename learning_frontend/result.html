@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Result</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    h1 { color: #007BFF; }
+    .correct { color: green; }
+    .wrong { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Quiz Result</h1>
+  <p id="score"></p>
+  <div id="details"></div>
+  <button onclick="window.location.href='index.html'">Try Again</button>
+
+  <script>
+    const score = localStorage.getItem("score");
+    const total = localStorage.getItem("total");
+    const results = JSON.parse(localStorage.getItem("results"));
+
+    document.getElementById("score").textContent = `You scored ${score} out of ${total}`;
+
+    const detailsDiv = document.getElementById("details");
+
+    results.forEach((res, i) => {
+      const p = document.createElement("p");
+      p.textContent = `${i+1}. ${res.question} → Your Answer: ${res.userAnswer || "No answer"}`;
+      p.className = res.correct ? "correct" : "wrong";
+      detailsDiv.appendChild(p);
+    });
+  </script>
+</body>
+</html>

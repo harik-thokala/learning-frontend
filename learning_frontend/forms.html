@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HTML forms examples</h1>
+
+    <!-- Login form-->
+
+     <h2>Login form</h2>
+     <form action="/login" method="post">
+
+        <label for="email">Email</label>
+        <input type="email "id="email" name="email" required/>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required/>
+
+        <button type="submit">Login</button>
+
+     </form>
+
+
+     <!-- Signup form-->
+
+     <h2>Signup form</h2>
+     <form action="/signup" method="post">
+
+        <!-- FieldSet   groups input-->
+        <fieldset>
+
+            <!--Legend   title for feild set-->
+            <legend>Personal Information</legend>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required/>
+
+            <label>Gender</label>
+
+            <input type="radio" id="male" name="Gender" value="male"/>
+            <label for="male">male</label>
+
+            <input type="radio" id="female" name="Gender" value="female"/>
+            <label for="female">female</label>
+
+            <!-- Select+Option    dropDown list-->
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="India">India</option>
+                <option value="US">US</option>
+                <option value="china">China</option>
+            </select>
+
+        </fieldset>
+
+        <!-- Button     submit-->
+
+        <button type="submit">SignUp</button>
+     </form>
+
+     <!-- Feedback form-->
+      <form action="/feedback" method="post">
+
+        <label for="feedback">Your feedback</label>
+        <textarea id="feedback" name="feedback" rows="4" cols="30"></textarea>
+
+        <label>
+            <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+            Subscribe
+        </label>
+
+      </form>
+
+
+      <!-- Search form-->
+       <form accept="/search" method="get">
+
+        <label for="query">Search</label>
+        <input type="text" id="query" name="q" placeholder="type something">
+        <button type="submit">Search</button>
+       </form>
+
+
+       <!-- HTML5 input types-->
+        <h2>Html5 input types</h2>
+        <form action="/test-inputs" method="post">
+            <label>Email</label>
+            <input type="email" placeholder="enter something">
+
+            <label>Website Url</label>
+            <input type="url" placeholder="enter something">
+
+            <label>Age 1-10</label>
+            <input type="number" min="1" max="10">
+
+            <label>Pick a Date:</label>
+            <input type="date">
+
+             <label>Pick a Time:</label>
+             <input type="time">
+
+            <label>Pick a Color:</label>
+            <input type="color">
+
+            <label>Range (0-100):</label>
+            <input type="range" min="0" max="100">
+
+            <button type="submit">submit inputs</button>
+
+        </form>
+
+
+</body>
+</html>

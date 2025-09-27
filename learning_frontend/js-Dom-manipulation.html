@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoM manipulation</title>
+    <style>
+        .highlight {background: yellow}
+        .hidden {display: none}
+        .box {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #333;
+            background: lightyellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="title">Hello DOM</h1>
+    <button id="addbtn">Add class</button>
+    <button id="removebtn">Remove Class</button>
+    <button id="togglebtn">Toggle class</button>
+    <button id="htmlbtn">html class</button>
+    <button id="createbtn">create class</button>
+
+    <div id="output"></div>
+
+    <h2>Remove and replace Examples</h2>
+
+    <div id="container">
+        <p class="box" id="para1">Paragraph1</p>
+        <p class="box" id="para2">Paragraph2</p>
+        <p class="box" id="para3">Paragraph3</p>
+    </div>
+
+    <button id="removebtn1">Remove pragraph2</button>
+    <button id="selfremovebtn">Remove paragraph 3</button>
+    <button id="replacebtn">Replace  with paragraph1</button>
+
+
+    <script>
+
+        let title = document.getElementById("title");
+        let output = document.getElementById("output");
+
+        // classList.Add
+
+        document.getElementById("addbtn").addEventListener("click",function(){
+            title.classList.add("highlight");
+        });
+
+        document.getElementById("removebtn").addEventListener("click",function(){
+            title.classList.remove("highlight");
+        });
+
+        document.getElementById("togglebtn").addEventListener("click",function(){
+            title.classList.toggle("hidden");
+        });
+
+        // innerHtml
+
+
+        document.getElementById("htmlbtn").addEventListener("click",function(){
+            output.innerHTML = "<p><b>Content changed using innerHTML!</b></p>";
+        })
+
+       document.getElementById("createbtn").addEventListener("click", function() {
+          let newPara = document.createElement("p");   // create <p>
+          newPara.textContent = "I was created dynamically!";
+           output.appendChild(newPara);  // add to #output
+
+       });
+
+
+       // Remove 
+
+       document.getElementById("removebtn1").addEventListener("click",function(){
+        let para2 = document.getElementById("para2") ;
+        container.removeChild(para2);
+       });
+
+       document.getElementById("replacebtn").addEventListener("click",function(){
+            let para1 = document.getElementById("para1");
+            container.replaceChild(para1,para3);
+        })
+
+        document.getElementById("selfremovebtn").addEventListener("click",function(){
+            let para3 = document.getElementById("para3");
+            para3.remove();
+        })
+        document.getElementById("addbtn").addEventListener("click",function(){
+            let para3 = document.getElementById("para3");
+        
+            container.appendChild(para3);
+        });
+
+        
+
+
+    </script>
+    
+</body>
+</html>

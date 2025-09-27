@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Box Model</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .box {
+      width: 200px;
+      background: lightblue;
+      padding: 20px;       /* inside space */
+      border: 5px solid navy; /* border thickness */
+      margin: 30px;        /* outside space */
+    }
+    .box2 {
+      width: 200px;
+      background: lightgreen;
+      padding: 40px;
+      border: 10px dashed darkgreen;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Box Model Example</h1>
+
+  <div class="box">
+    <p>This is Box 1</p>
+    <p>Padding: 20px, Border: 5px, Margin: 30px</p>
+  </div>
+
+  <div class="box2">
+    <p>This is Box 2</p>
+    <p>Padding: 40px, Border: 10px dashed, Margin: 10px</p>
+  </div>
+
+</body>
+</html>

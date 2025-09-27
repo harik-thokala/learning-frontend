@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ test</title>
+
+    <style>
+        body{font-family: Arial;
+            margin:20px;
+        }
+        .question{
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        label{
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        button{
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+
+        }
+        button:hover {background: #0056b3;}
+
+    </style>
+
+</head>
+<body>
+  <h1>Simple quiz</h1>
+
+  <form id="quizForm">
+    <!-- JS will inject questions here -->
+    <button type="submit">Submit</button>
+  </form>
+
+<script>
+const quizData = [
+  { question: "Q1: HTML stands for?", options: ["Hyper Trainer Marking Language", "Hyper Text Markup Language", "High Text Marking Level", "None"], answer: "Hyper Text Markup Language" },
+  { question: "Q2: CSS is used for?", options: ["Structure", "Styling", "Database", "Networking"], answer: "Styling" },
+  { question: "Q3: JS is?", options: ["Programming Language", "Database", "Markup", "None"], answer: "Programming Language" },
+  { question: "Q4: Which runs in browser?", options: ["Python", "C++", "JavaScript", "Java"], answer: "JavaScript" },
+  { question: "Q5: Which tag for image?", options: ["<img>", "<p>", "<div>", "<a>"], answer: "<img>" }
+];
+
+const form = document.getElementById("quizForm");
+
+quizData.forEach((q,index)=>{
+  const div = document.createElement("div");
+  div.classList.add("question");
+
+  const h3 = document.createElement("h3")
+  h3.textContent = q.question;
+  div.appendChild(h3);
+
+  q.options.forEach(opt =>{
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+
+    input.type= "radio";
+    input.name="q" + index;   // ✅ fixed
+    input.value = opt;
+
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(opt));
+    div.appendChild(label);
+  });
+
+  form.insertBefore(div, form.querySelector("button"));
+});
+
+// submit event
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  let score = 0;
+  let results = [];
+
+  quizData.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    let userAnswer = selected ? selected.value : null;
+
+    if (userAnswer === q.answer) {
+      score++;
+      results.push({ question: q.question, correct: true, userAnswer });
+    } else {
+      results.push({ question: q.question, correct: false, userAnswer });
+    }
+  });
+
+  localStorage.setItem("results", JSON.stringify(results));
+  localStorage.setItem("score", score);
+  localStorage.setItem("total", quizData.length);
+
+  window.location.href = "result.html";
+});
+</script>
+</body>
+
+</html>

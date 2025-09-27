@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event listners</title>
+</head>
+<body>
+
+    <!-- Event Listeners  -  An event listner waits for a specific action and then runs the code(function)-->
+<h1> Event Listners</h1>
+
+<!-- Click-->
+
+<button id="clickbtn">Click me</button>
+<p id="clickmsg"></p>
+
+<!-- Submit-->
+
+<form id="formExample">
+    <input type="text" id="inputName" placeholder="your name">
+    <button type="submit">Submit</button>
+
+
+</form>
+<p id="formmsg"></p>
+    
+
+
+
+<script>
+// click
+
+document.getElementById("clickbtn").addEventListener("click",function(){
+    document.getElementById("clickmsg").textContent="button clicked";
+});
+
+// Submit
+
+document.getElementById("formExample").addEventListener("submit",function(e){
+    e.preventDefault();
+    let name =document.getElementById("inputName").value;
+    document.getElementById("formmsg").textContent="welcome"+ name;
+
+});
+
+// Load
+
+window.addEventListener("load",function(){
+
+    console.log("page fully loaded");
+});
+
+
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables Example</title>
+
+    <style>
+        :root{
+            --main-bg: #f9f9f9;
+      --primary-color: #007BFF;
+      --secondary-color: #333;
+      --padding: 12px;
+        }
+         body {
+      background-color: var(--main-bg);
+      color: var(--secondary-color);
+      font-family: Arial, sans-serif;
+    }
+
+     h1 {
+      color: var(--primary-color);
+    }
+ button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: var(--padding);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: darkblue;
+    }
+    </style>
+</head>
+<body>
+    <h1>Using CSS Variables</h1>
+  <p>This paragraph uses variables for colors and padding.</p>
+  <button>Click Me</button>
+
+
+
+
+</body>
+</html>

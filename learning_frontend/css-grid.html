@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid Examples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h2 {
+      margin-top: 40px;
+      color: #333;
+    }
+    .grid {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .grid div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+    }
+    /* Example 1 - Basic Grid */
+    .basic-grid {
+      grid-template-columns: 100px 100px 100px;
+      grid-template-rows: 80px 80px;
+    }
+    .basic-grid div {
+      background: #007BFF;
+    }
+    /* Example 2 - fr Units */
+    .fr-grid {
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+    .fr-grid div {
+      background: orange;
+      color: black;
+    }
+    /* Example 3 - Auto-fit */
+    .auto-fit-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .auto-fit-grid div {
+      background: lightgreen;
+      color: black;
+      padding: 30px;
+    }
+    /* Example 4 - Grid Item Placement */
+    .placement-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 100px);
+    }
+    .placement-grid div {
+      background: #444;
+    }
+    .placement-grid .item1 {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+      background: crimson;
+    }
+    /* Example 5 - Full Page Layout */
+    .layout {
+      display: grid;
+      grid-template-areas: 
+        "header header"
+        "nav main"
+        "footer footer";
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 60px 1fr 60px;
+      height: 300px;
+      margin-top: 20px;
+    }
+    header { grid-area: header; background: #007BFF; }
+    nav { grid-area: nav; background: #f2f2f2; color: black; }
+    main { grid-area: main; background: #fff; color: black; }
+    footer { grid-area: footer; background: #333; }
+    header, nav, main, footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+    }
+    nav, main {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Grid Examples</h1>
+
+  <!-- 1. Basic Grid -->
+  <h2>1. Basic Grid</h2>
+  <div class="grid basic-grid">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+
+  <!-- 2. Grid with fr Units -->
+  <h2>2. Responsive Grid with fr Units</h2>
+  <div class="grid fr-grid">
+    <div>Column 1 (1fr)</div>
+    <div>Column 2 (2fr)</div>
+    <div>Column 3 (1fr)</div>
+  </div>
+
+  <!-- 3. Auto-fit Responsive Grid -->
+  <h2>3. Auto-fit Responsive Grid</h2>
+  <div class="grid auto-fit-grid">
+    <div>Box 1</div>
+    <div>Box 2</div>
+    <div>Box 3</div>
+    <div>Box 4</div>
+    <div>Box 5</div>
+  </div>
+
+  <!-- 4. Grid Item Placement -->
+  <h2>4. Grid Item Placement (Spanning Rows & Columns)</h2>
+  <div class="grid placement-grid">
+    <div class="item1">Big Box</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </div>
+
+  <!-- 5. Full Page Layout -->
+  <h2>5. Full Page Layout using CSS Grid</h2>
+  <div class="layout">
+    <header>Header</header>
+    <nav>Sidebar</nav>
+    <main>Main Content</main>
+    <footer>Footer</footer>
+  </div>
+
+</body>
+</html>

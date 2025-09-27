@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lists with Icons (Font Awesome)</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #333;
+    }
+    /* Navigation Menu */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav ul li a i {
+      margin-right: 8px;
+      color: #007BFF;
+    }
+    nav ul li a:hover {
+      color: #007BFF;
+    }
+    /* To-Do List */
+    .todo {
+      list-style: none;
+      padding: 0;
+      max-width: 300px;
+    }
+    .todo li {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .todo li.done {
+      text-decoration: line-through;
+      color: #666;
+    }
+    .todo i {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lists with Font Awesome Icons</h1>
+
+  <!-- 1. Navigation Menu with Icons -->
+  <h2>1. Navigation Menu</h2>
+  <nav>
+    <ul>
+      <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="#"><i class="fa-solid fa-info-circle"></i> About</a></li>
+      <li><a href="#"><i class="fa-solid fa-blog"></i> Blog</a></li>
+      <li><a href="#"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- 2. To-Do List with Icons -->
+  <h2>2. To-Do List</h2>
+  <ul class="todo">
+    <li><i class="fa-regular fa-square"></i> Buy groceries</li>
+    <li class="done"><i class="fa-solid fa-check-square"></i> Finish HTML homework</li>
+    <li><i class="fa-regular fa-square"></i> Call the doctor</li>
+    <li><i class="fa-regular fa-square"></i> Read a book</li>
+  </ul>
+
+  <!-- 3. Social Media List with Icons -->
+  <h2>3. Social Media Links</h2>
+  <ul style="list-style: none; display: flex; gap: 15px; padding: 0;">
+    <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+    <li><a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
+    <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+    <li><a href="#"><i class="fa-brands fa-github"></i> GitHub</a></li>
+  </ul>
+
+</body>
+</html>

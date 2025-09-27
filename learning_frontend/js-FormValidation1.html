@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Handling example</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+        }
+        input,button{
+            padding: 8px;
+            margin: 5px;
+        }
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+        .success{
+            color: green;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="myform">
+        <label>Name:</label><br>
+        <input type="text" name="" id="name" placeholder="Enter your name">
+        <br>
+        <span id="nameError" class="error"></span>
+        <br>
+
+        <label>Email:</label><br>
+        <input type="email" id="email" placeholder="Enter your Email">
+        <br>
+        <span id="emailError" class="error"></span>
+        <br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+
+        let form = document.getElementById("myform");
+        let result = document.getElementById("result");
+
+        form.addEventListener("submit",function(e){
+
+            e.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+
+            let valid = true;
+
+            if(name=== ""){
+                document.getElementById("nameError").textContent="name is required";
+            }
+            else{
+                document.getElementById("nameError").textContent="";
+            }
+
+            if(email=== "")
+            {
+                document.getElementById("emailError").textContent="Email is required";
+            }
+            else if(!email.includes("@")) {
+                document.getElementById("emailError").textContent="enter a valid email";
+            }
+            else{
+                document.getElementById("emailError").textContent="";
+            }
+
+            if(valid){
+
+                result.textContent=`Hello ${name} we have recieved your email :${email}`;
+                result.className="success";
+            }
+            else{
+                result.textContent="";
+            }
+
+
+        });
+
+    </script>
+    
+</body>
+</html>
